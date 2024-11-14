@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siva Holidays</title>
+   
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .logo {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centers the logo horizontally */
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('world-wonders.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #f2e9e9;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e31e24;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+        .about-section, .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .counter-section {
+            background-color: #e31e24;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            flex: 1;
+        }
+        .counter {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .counter-text {
+            font-size: 18px;
+            margin: 0;
+        }
+        .content-section {
+            padding: 20px;
+            flex: 2;
+        }
+        .content-section h2 {
+            font-size: 36px;
+            color: #e31e24;
+            margin: 0;
+        }
+        .content-section h3 {
+            font-size: 24px;
+            color: #212529;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .content-section p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .explore-link {
+            font-size: 16px;
+            color: #6c63ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+        .explore-link:hover {
+            color: #e31e24;
+        }
+        .section-title {
+            font-size: 28px;
+            color: #555;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .card p {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .enquire-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .enquire-btn:hover {
+            background-color: #b71c1c;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .modal-header {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+        .modal-content label {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #666;
+        }
+        .modal-content input,
+        .modal-content textarea,
+        .modal-content button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .modal-content button {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .modal-content button:hover {
+            background-color: #b71c1c;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e31e24;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        #contact-us {
+            background-color: #1c1c1c;
+            color: #f4f4f4;
+            padding: 60px 0;
+        }
+        #contact-us .container {
+            text-align: center;
+        }
+        #contact-us h1 {
+            font-size: 36px;
+            color: #fff;
+        }
+        #contact-us p {
+            font-size: 18px;
+            color: #bbb;
+        }
+        #contact-form {
+            background-color: #2a2a2a;
+            padding: 30px;
+            width: 60%;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #contact-form label {
+            color: #fff;
+            font-size: 16px;
+        }
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #contact-form button {
+            width: 100%;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 14px 0;
+            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #contact-form button:hover {
+            background-color: #b71c1c;
+        }
+        #thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 40px;
+            color: #fff;
+        }
+        #thank-you-message h2 {
+            font-size: 24px;
+        }
+        #thank-you-message p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Siva Holidays</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#domestic-tours">Domestic Tours</a></li>
+                    <li><a href="#international-tours">International Tours</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#types-of-tours">Types Of Tours</a></li>
+                    <li><a href="#testimonial">Testimonial</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <img src="worls-wonders.jpg" alt="Goa" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+    </section>
+    <section id="about-us" class="about-section" style="border-radius: 15px; padding: 20px; background-color: #f9f9f9;">
+        <div class="counter-section">
+            <div class="counter-box">
+                <p class="counter" data-target="2000">0</p>
+                <p class="counter-text">Happy Customers</p>
+            </div>
+            <div class="counter-box">
+                <p class="counter" data-target="50">0</p>
+                <p class="counter-text">Destinations Covered</p>
+            </div>
+            <div class="counter-box">
+                <p class="counter" data-target="65">0</p>
+                <p class="counter-text">Popular Guides</p>
+            </div>
+        </div>
+        <div class="content-section">
+            <h2>Popular Destination</h2>
+            <h3>Experience the World</h3>
+            <p>We offer a range of unique travel destinations across the globe, from tropical beaches to exotic wildlife safaris. Our destinations are carefully curated to ensure that you get the best travel experience possible.</p>
+            <a href="#" class="explore-link">Explore Destinations</a>
+        </div>
+    </section>
+    
+    <script>
+        // Function to animate counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                counter.innerText = '0';
+                const updateCounter = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / 100;  // Adjust this to control speed
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 30); // Adjust speed of increment here
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+    
+        // Trigger animation on page load
+        window.addEventListener('load', animateCounters);
+    </script>
+    
+    <!-- Customer Testimonials Section -->
+    
+    <script>
+        // Function to close the Happy Customers box
+        function closeHappyCustomers() {
+            document.querySelector('.happy-customers').style.display = 'none';
+        }
+    </script>
+    
+    
+    
+    
+    
+    <h1>Tour Packages</h1>
+
+    <h2 class="section-title">Domestic Tours</h2>
+   
+<div class="container">
+    <div class="card"><img src="goa.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Goa</h2><p>3 Nights & 4 Days</p><p>Rs.8,000/- + Flight Or Train</p><a href="#" class="enquire-btn" onclick="openModal('Goa')">Enquire Now</a></div> 
+
+
+        <div class="card"> <img src="kerala.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kerala</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kerala')">Enquire Now</a></div>
+        <div class="card"><img src="andaman.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Andaman</h2><p>4 Nights & 5 Days</p><p>Rs.20,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Andaman')">Enquire Now</a></div>
+        <div class="card"><img src="delhi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Delhi-Agra-Jaipur</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Delhi-Agra-Jaipur')">Enquire Now</a></div>
+        <div class="card"><img src="rajasthan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Rajasthan</h2><p>5 Nights & 6 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Rajasthan')">Enquire Now</a></div>
+        <div class="card"><img src="himachal pradesh.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Himachal Pradesh</h2><p>6 Nights & 7 Days</p><p>Rs.30,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Himachal Pradesh')">Enquire Now</a></div>
+        <div class="card"><img src="sikkim.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Sikkim</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Sikkim')">Enquire Now</a></div>
+        <div class="card"><img src="shimla-manali.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Shimla-Manali</h2><p>4 Nights & 5 Days</p><p>Rs.19,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Shimla-Manali')">Enquire Now</a></div>
+        <div class="card"><img src="kashmir.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kashmir</h2><p>4 Nights & 5 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kashmir')">Enquire Now</a></div>
+        <div class="card"><img src="kasi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kasi</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kasi')">Enquire Now</a></div>
+
+    </div>
+
+    <h2 class="section-title">International Tours</h2>
+    <div class="container">
+        <div class="card"><img src="azerbaijan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Azerbaijan</h2><p>4 Nights & 5 Days</p><p>Rs.39,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Azerbaijan')">Enquire Now</a></div>
+        <div class="card"><img src="sikkim.jpg" style="width: 100%; height: auto; border-radius: 10px;"><h2>Bali</h2><p>5 Nights & 6 Days</p><p>Rs.35,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Bali')">Enquire Now</a></div>
+        <div class="card"><img src="cambodia.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Cambodia</h2><p>7 Nights & 8 Days</p><p>Rs.69,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Cambodia')">Enquire Now</a></div>
+        <div class="card"><img src="dubai.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Dubai</h2><p>4 Nights & 5 Days</p><p>Rs.50,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Dubai')">Enquire Now</a></div>
+        <div class="card"><img src="europe.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Europe</h2><p>9 Nights & 10 Days</p><p>Rs.1.5 Lakhs/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Europe')">Enquire Now</a></div>
+        <div class="card"><img src="malaisia.jpg"Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Malaysia</h2><p>5 Nights & 6 Days</p><p>Rs.65,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Malaysia')">Enquire Now</a></div>
+        <div class="card"><img src="maldives.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Maldives</h2><p>4 Nights & 5 Days</p><p>Rs.49,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Maldives')">Enquire Now</a></div>
+        <div class="card"><img src="seychallus1.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Seychelles</h2><p>4 Nights & 5 Days</p><p>Rs.59,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Seychelles')">Enquire Now</a></div>
+        <div class="card"><img src="singapore.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Singapore</h2><p>5 Nights & 6 Days</p><p>Rs.58,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Singapore')">Enquire Now</a></div>
+    </div>
+
+
+    <script>
+        /// JavaScript code to trigger scroll effect
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.container .card');
+    
+    function scrollEffect() {
+        const scrollPosition = window.innerHeight + window.scrollY;
+        
+        cards.forEach(card => {
+            const cardPosition = card.offsetTop + card.offsetHeight;
+            if (scrollPosition >= cardPosition) {
+                card.classList.add('scroll-up');
+            }
+        });
+    }
+
+    // Trigger scroll effect on page load and scroll
+    window.addEventListener('scroll', scrollEffect);
+    scrollEffect();  // Trigger initially in case some cards are already in view
+});
+
+});
+
+    </script>
+
+    <style>.container .card img {
+        transition: transform 0.3s ease; /* Smooth zoom effect */
+    }
+    
+    .container .card:hover img {
+        transform: scale(1.2); /* Scale the image by 20% on hover */
+    }
+    
+
+        /* Add styles for modal and form elements */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .modal-header {
+            font-size: 24px;
+            color: #6d6c6c;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+        .modal-content label {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #666;
+        }
+        .modal-content input,
+        .modal-content textarea,
+        .modal-content button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .modal-content button {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .modal-content button:hover {
+            background-color: #b71c1c;
+        }
+        
+    </style>
+
+<body>
+    <!-- Modal for Enquire Now -->
+    <div class="modal" id="enquireModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Enquire About Tour</div>
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="1e30cfca-c892-4d22-88e3-cc72d6a2ea67">
+                <label for="name">Your Name (required):</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email (required):</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number (required):</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="destination">Destination (required):</label>
+                <input type="text" id="destination" name="destination" required>
+
+                <label for="message">Your Message (optional):</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+      <script>
+        // Function to open modal
+        function openModal(destination) {
+            // Fill the destination field automatically with the selected tour's name
+            document.getElementById('destination').value = destination;
+            document.getElementById('enquireModal').style.display = 'flex';
+        }
+
+        // Function to close modal
+        function closeModal() {
+            document.getElementById('enquireModal').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('enquireForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Here you can process the form (e.g., sending it to a server)
+            // For now, we will just display an alert
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const destination = document.getElementById('destination').value;
+            const message = document.getElementById('message').value;
+
+            alert(`Enquiry submitted for ${destination}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`);
+            
+            // Close the modal after submission
+            closeModal();
+        });
+    </script>
+      
+<!-- Social Media Floating Buttons -->
+<div class="floating-social-icons">
+    <a href="https://facebook.com" target="_blank" class="social-icon facebook">
+      <i class="fa fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/Sivaaaa_07_/profilecard/?igsh=bnR5MzE2NXVsNGtw" target="_blank" class="social-icon instagram">
+      <i class="fa fa-instagram"></i>
+    </a>
+    <a href="https://whatsapp.com" target="_blank" class="social-icon whatsapp">
+      <i class="fa fa-whatsapp"></i>
+    </a>
+  </div>
+  
+  <!-- Font Awesome for Social Media Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <style>
+    /* Floating Social Icons Container */
+    .floating-social-icons {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+  
+    /* Individual Social Icon */
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+  
+    /* Facebook Icon */
+    .social-icon.facebook {
+      background-color: #3b5998;
+    }
+  
+    /* Instagram Icon */
+    .social-icon.instagram {
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+  
+    /* WhatsApp Icon */
+    .social-icon.whatsapp {
+      background-color: #25d366;
+    }
+  
+    /* Hover Effects */
+    .social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    /* Floating Animation */
+    .floating-social-icons a {
+      animation: float 3s infinite ease-in-out;
+    }
+  
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+    }
+  </style>
+  
+
+ 
+
+  <title>Our Services and Tours</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+      }
+      .container {
+          width: 80%;
+          margin: auto;
+          text-align: left;
+          padding: 20px;
+      }
+      .section-title {
+          font-size: 1.5em;
+          margin-top: 20px;
+          color: #333;
+      }
+      .services-section, .tours-section {
+          margin-top: 20px;
+      }
+      .services-content, .tours-content {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          margin-top: 20px;
+      }
+      .services-list, .tours-list {
+          width: 70%;
+          margin-left: 20px; /* Adds space between the image and the list */
+      }
+      .services-section ul, .tours-section ul {
+          list-style-type: none;
+          padding: 0;
+      }
+      .services-section ul li, .tours-section ul li {
+          font-size: 1.2em;
+          font-weight: bold; /* Makes the points bold */
+          margin-bottom: 10px;
+      }
+      /* Styling for the round image */
+      .image {
+          width: 180px;
+          height: 180px;
+          border-radius: 50%; /* Makes the image round */
+          overflow: hidden;
+      }
+      .image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Ensures the image fits within the round shape */
+      }
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+      
+      
+      <!-- Our Services Section with Image on Left -->
+      <div class="services-section">
+          <h2 class="section-title">Our Services</h2>
+          <div class="services-content">
+              <div class="image">
+                  <!-- Replace 'your-service-image.jpg' with your actual image path -->
+                  <img src="currency.webp" alt="Our Services">
+              </div>
+              <div class="services-list">
+                  <ul>
+                      <li>Passport</li>
+                      <li>Visa</li>
+                      <li>Currency Exchange</li>
+                      <li>Travel Insurance</li>
+                      <li>Hotel & Resort Booking</li>
+                      <li>Flight Tickets (Domestic & International)</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Types of Tours Section with Image on Right -->
+      <div class="tours-section">
+          <h2 class="section-title">Types of Tours</h2>
+          <div class="tours-content">
+              <div class="tours-list">
+                  <ul>
+                      <li>Family Tours</li>
+                      <li>Friends Adventure Tours</li>
+                      <li>Honeymoon Tours</li>
+                      <li>International Trade Fair Tours</li>
+                      <li>School & College Tours</li>
+                      <li>Cruise Tours</li>
+                      <li>Spiritual Tours</li>
+                  </ul>
+              </div>
+              <div class="image">
+                  <!-- Replace 'your-tours-image.jpg' with your actual image path -->
+                  <img src="types of tours.avif" alt="Tour Destinations">
+              </div>
+          </div>
+      </div>
+  </div>
+     
+
+
+
+
+      <div class="contact-form-wrapper">
+        <div class="contact-form">
+          <h2>Contact Us</h2>
+       
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="1e30cfca-c892-4d22-88e3-cc72d6a2ea67">
+            
+            <div class="input-group">
+              <input type="text" id="name" name="name" required placeholder=" ">
+              <label for="name">Your Name</label>
+            </div>
+            <div class="input-group">
+              <input type="email" id="email" name="email" required placeholder=" ">
+              <label for="email">Your Email</label>
+            </div>
+            <div class="input-group">
+              <input type="tel" id="phone" name="phone" required placeholder=" ">
+              <label for="phone">Phone Number</label>
+            </div>
+            <div class="input-group">
+              <textarea id="message" name="message" required placeholder=" "></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Thank You Section at the Bottom -->
+      <div class="thank-you">
+       
+      </div>
+      
+      <style>
+        /* Center the form on the page */
+        .contact-form-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          background-color: #121212;
+          padding: 2rem;
+        }
+      
+        .contact-form {
+          background: #222;
+          padding: 2rem;
+          border-radius: 10px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+          width: 100%;
+          max-width: 500px;
+        }
+      
+        .contact-form h2 {
+          text-align: center;
+          margin-bottom: 1.5rem;
+          font-size: 1.8rem;
+          color: #0dcaf0;
+          text-shadow: 0 0 10px #0dcaf0;
+        }
+      
+        .contact-form .input-group {
+          position: relative;
+          margin-bottom: 1.5rem;
+        }
+      
+        .contact-form .input-group input, 
+        .contact-form .input-group textarea {
+          width: 100%;
+          padding: 0.8rem 1rem;
+          background: #1b1b1b;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 1rem;
+          outline: none;
+          transition: all 0.3s ease;
+        }
+      
+        .contact-form .input-group input:focus,
+        .contact-form .input-group textarea:focus {
+          box-shadow: 0 0 8px #0dcaf0, 0 0 15px #0dcaf0;
+        }
+      
+        .contact-form .input-group label {
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 1rem;
+          color: #aaa;
+          pointer-events: none;
+          transition: all 0.3s ease;
+        }
+      
+        .contact-form .input-group input:focus ~ label,
+        .contact-form .input-group input:not(:placeholder-shown) ~ label,
+        .contact-form .input-group textarea:focus ~ label,
+        .contact-form .input-group textarea:not(:placeholder-shown) ~ label {
+          top: -0.5rem;
+          left: 1rem;
+          font-size: 0.8rem;
+          color: #0dcaf0;
+        }
+      
+        .contact-form textarea {
+          height: 100px;
+          resize: none;
+        }
+      
+        .contact-form .submit-btn {
+          background: linear-gradient(45deg, #0dcaf0, #00d4ff);
+          padding: 0.8rem 1.5rem;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+      
+        .contact-form .submit-btn:hover {
+          box-shadow: 0 0 15px #0dcaf0, 0 0 30px #0dcaf0;
+        }
+      
+        /* Thank You Section */
+        .thank-you {
+          text-align: center;
+          padding: 1rem;
+          background: #1b1b1b;
+          color: #0dcaf0;
+          margin-top: 2rem;
+          border-radius: 5px;
+          font-size: 1.1rem;
+        }
+      </style>
+      
+      
+</body>
+</html>
