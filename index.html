@@ -12,7 +12,7 @@
 
 
     <style>
-        {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -38,7 +38,6 @@
             list-style-type: none;
             display: flex;
             gap: 20px;
-            transition: max-height 0.5s ease-in-out;
         }
         nav ul li {
             display: inline;
@@ -54,45 +53,10 @@
             background-color: #575757;
             border-radius: 5px;
         }
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.8rem;
-            color: white;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            border-radius: 2px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        nav ul.mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 20px 0;
-            max-height: 0;
-            overflow: hidden;
-            z-index: 999;
-        }
-        nav.open ul.mobile-menu {
-            display: flex;
-            max-height: 400px; /* Adjust to fit your content */
-        }
+        /* Hide navbar on screens smaller than 768px */
         @media screen and (max-width: 768px) {
-            nav ul {
+            nav {
                 display: none;
-            }
-            .hamburger {
-                display: flex;
             }
         }
     ....
@@ -422,39 +386,7 @@
         </div>
     </header>
 <nav>
-        <div class="logo">Premium Navbar</div>
-        <ul class="mobile-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Packages</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </nav>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            const hamburger = document.querySelector('.hamburger');
-            const lines = document.querySelectorAll('.hamburger div');
-            nav.classList.toggle('open');
-
-            // Animation for the hamburger lines
-            if (nav.classList.contains('open')) {
-                lines[0].style.transform = 'rotate(45deg) translateY(7px)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'rotate(-45deg) translateY(-7px)';
-            } else {
-                lines[0].style.transform = 'rotate(0) translateY(0)';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'rotate(0) translateY(0)';
-            }
-        }
-    </script>
+        
     <section>
         <img src="worls-wonders.jpg" alt="Goa" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
     </section>
