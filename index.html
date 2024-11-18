@@ -408,6 +408,10 @@
                 display: none;
             }
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -421,11 +425,8 @@
                     <li><a href="#about-us">About Us</a></li>
                     <li><a href="#domestic-tours">Domestic Tours</a></li>
                     <li><a href="#international-tours">International Tours</a></li>
-                    <li><a href="#services">Our Services</a></li>
-                    <li><a href="#types-of-tours">Types Of Tours</a></li>
-                    <li><a href="#testimonial">Testimonial</a></li>
                     <li><a href="#contact-us">Contact Us</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                
                 </ul>
             </nav>
         </div>
@@ -586,8 +587,18 @@
             });
         }
     
-        // Trigger animation on page load
-        window.addEventListener('load', animateCounters);
+        // Use Intersection Observer to trigger animation when section is in view
+        const aboutSection = document.querySelector('#about-us');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(aboutSection); // Stop observing after animation
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(aboutSection);
     </script>
     
     <!-- Customer Testimonials Section -->
@@ -605,36 +616,39 @@
     
     <h1>Tour Packages</h1>
 
-    <h2 class="section-title">Domestic Tours</h2>
-   
-<div class="container">
-    <div class="card"><img src="goa.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Goa</h2><p>3 Nights & 4 Days</p><p>Rs.8,000/- + Flight Or Train</p><a href="#" class="enquire-btn" onclick="openModal('Goa')">Enquire Now</a></div> 
+    <section id="domestic-tours">
+        <h2 class="section-title">Domestic Tours</h2>
+        <div class="container">
+            <div class="card"><img src="goa.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Goa</h2><p>3 Nights & 4 Days</p><p>Rs.8,000/- + Flight Or Train</p><a href="#" class="enquire-btn" onclick="openModal('Goa')">Enquire Now</a></div> 
 
 
-        <div class="card"> <img src="kerala.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kerala</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kerala')">Enquire Now</a></div>
-        <div class="card"><img src="andaman.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Andaman</h2><p>4 Nights & 5 Days</p><p>Rs.20,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Andaman')">Enquire Now</a></div>
-        <div class="card"><img src="delhi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Delhi-Agra-Jaipur</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Delhi-Agra-Jaipur')">Enquire Now</a></div>
-        <div class="card"><img src="rajasthan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Rajasthan</h2><p>5 Nights & 6 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Rajasthan')">Enquire Now</a></div>
-        <div class="card"><img src="himachal pradesh.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Himachal Pradesh</h2><p>6 Nights & 7 Days</p><p>Rs.30,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Himachal Pradesh')">Enquire Now</a></div>
-        <div class="card"><img src="sikkim.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Sikkim</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Sikkim')">Enquire Now</a></div>
-        <div class="card"><img src="shimla-manali.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Shimla-Manali</h2><p>4 Nights & 5 Days</p><p>Rs.19,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Shimla-Manali')">Enquire Now</a></div>
-        <div class="card"><img src="kashmir.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kashmir</h2><p>4 Nights & 5 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kashmir')">Enquire Now</a></div>
-        <div class="card"><img src="kasi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kasi</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kasi')">Enquire Now</a></div>
+            <div class="card"> <img src="kerala.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kerala</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kerala')">Enquire Now</a></div>
+            <div class="card"><img src="andaman.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Andaman</h2><p>4 Nights & 5 Days</p><p>Rs.20,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Andaman')">Enquire Now</a></div>
+            <div class="card"><img src="delhi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Delhi-Agra-Jaipur</h2><p>3 Nights & 4 Days</p><p>Rs.15,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Delhi-Agra-Jaipur')">Enquire Now</a></div>
+            <div class="card"><img src="rajasthan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Rajasthan</h2><p>5 Nights & 6 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Rajasthan')">Enquire Now</a></div>
+            <div class="card"><img src="himachal pradesh.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Himachal Pradesh</h2><p>6 Nights & 7 Days</p><p>Rs.30,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Himachal Pradesh')">Enquire Now</a></div>
+            <div class="card"><img src="sikkim.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Sikkim</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Sikkim')">Enquire Now</a></div>
+            <div class="card"><img src="shimla-manali.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Shimla-Manali</h2><p>4 Nights & 5 Days</p><p>Rs.19,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Shimla-Manali')">Enquire Now</a></div>
+            <div class="card"><img src="kashmir.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kashmir</h2><p>4 Nights & 5 Days</p><p>Rs.25,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kashmir')">Enquire Now</a></div>
+            <div class="card"><img src="kasi.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Kasi</h2><p>3 Nights & 4 Days</p><p>Rs.12,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Kasi')">Enquire Now</a></div>
 
-    </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">International Tours</h2>
-    <div class="container">
-        <div class="card"><img src="azerbaijan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Azerbaijan</h2><p>4 Nights & 5 Days</p><p>Rs.39,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Azerbaijan')">Enquire Now</a></div>
-        <div class="card"><img src="sikkim.jpg" style="width: 100%; height: auto; border-radius: 10px;"><h2>Bali</h2><p>5 Nights & 6 Days</p><p>Rs.35,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Bali')">Enquire Now</a></div>
-        <div class="card"><img src="cambodia.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Cambodia</h2><p>7 Nights & 8 Days</p><p>Rs.69,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Cambodia')">Enquire Now</a></div>
-        <div class="card"><img src="dubai.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Dubai</h2><p>4 Nights & 5 Days</p><p>Rs.50,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Dubai')">Enquire Now</a></div>
-        <div class="card"><img src="europe.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Europe</h2><p>9 Nights & 10 Days</p><p>Rs.1.5 Lakhs/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Europe')">Enquire Now</a></div>
-        <div class="card"><img src="malaisia.jpg"Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Malaysia</h2><p>5 Nights & 6 Days</p><p>Rs.65,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Malaysia')">Enquire Now</a></div>
-        <div class="card"><img src="maldives.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Maldives</h2><p>4 Nights & 5 Days</p><p>Rs.49,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Maldives')">Enquire Now</a></div>
-        <div class="card"><img src="seychallus1.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Seychelles</h2><p>4 Nights & 5 Days</p><p>Rs.59,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Seychelles')">Enquire Now</a></div>
-        <div class="card"><img src="singapore.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Singapore</h2><p>5 Nights & 6 Days</p><p>Rs.58,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Singapore')">Enquire Now</a></div>
-    </div>
+    <section id="international-tours">
+        <h2 class="section-title">International Tours</h2>
+        <div class="container">
+            <div class="card"><img src="azerbaijan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Azerbaijan</h2><p>4 Nights & 5 Days</p><p>Rs.39,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Azerbaijan')">Enquire Now</a></div>
+            <div class="card"><img src="sikkim.jpg" style="width: 100%; height: auto; border-radius: 10px;"><h2>Bali</h2><p>5 Nights & 6 Days</p><p>Rs.35,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Bali')">Enquire Now</a></div>
+            <div class="card"><img src="cambodia.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Cambodia</h2><p>7 Nights & 8 Days</p><p>Rs.69,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Cambodia')">Enquire Now</a></div>
+            <div class="card"><img src="dubai.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Dubai</h2><p>4 Nights & 5 Days</p><p>Rs.50,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Dubai')">Enquire Now</a></div>
+            <div class="card"><img src="europe.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Europe</h2><p>9 Nights & 10 Days</p><p>Rs.1.5 Lakhs/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Europe')">Enquire Now</a></div>
+            <div class="card"><img src="malaisia.jpg"Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Malaysia</h2><p>5 Nights & 6 Days</p><p>Rs.65,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Malaysia')">Enquire Now</a></div>
+            <div class="card"><img src="maldives.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Maldives</h2><p>4 Nights & 5 Days</p><p>Rs.49,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Maldives')">Enquire Now</a></div>
+            <div class="card"><img src="seychallus1.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Seychelles</h2><p>4 Nights & 5 Days</p><p>Rs.59,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Seychelles')">Enquire Now</a></div>
+            <div class="card"><img src="singapore.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Singapore</h2><p>5 Nights & 6 Days</p><p>Rs.58,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Singapore')">Enquire Now</a></div>
+        </div>
+    </section>
 
 
     <script>
@@ -878,107 +892,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
  
 
-  <title>Our Services and Tours</title>
-  <style>
-      body {
-          font-family: Arial, sans-serif;
-          text-align: center;
-      }
-      .container {
-          width: 80%;
-          margin: auto;
-          text-align: left;
-          padding: 20px;
-      }
-      .section-title {
-          font-size: 1.5em;
-          margin-top: 20px;
-          color: #333;
-      }
-      .services-section, .tours-section {
-          margin-top: 20px;
-      }
-      .services-content, .tours-content {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          margin-top: 20px;
-      }
-      .services-list, .tours-list {
-          width: 70%;
-          margin-left: 20px; /* Adds space between the image and the list */
-      }
-      .services-section ul, .tours-section ul {
-          list-style-type: none;
-          padding: 0;
-      }
-      .services-section ul li, .tours-section ul li {
-          font-size: 1.2em;
-          font-weight: bold; /* Makes the points bold */
-          margin-bottom: 10px;
-      }
-      /* Styling for the round image */
-      .image {
-          width: 180px;
-          height: 180px;
-          border-radius: 50%; /* Makes the image round */
-          overflow: hidden;
-      }
-      .image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover; /* Ensures the image fits within the round shape */
-      }
-      
-  </style>
+  
 </head>
 <body>
-  <div class="container">
-      
-      
-      <!-- Our Services Section with Image on Left -->
-      <div class="services-section">
-          <h2 class="section-title">Our Services</h2>
-          <div class="services-content">
-              <div class="image">
-                  <!-- Replace 'your-service-image.jpg' with your actual image path -->
-                  <img src="currency.webp" alt="Our Services">
-              </div>
-              <div class="services-list">
-                  <ul>
-                      <li>Passport</li>
-                      <li>Visa</li>
-                      <li>Currency Exchange</li>
-                      <li>Travel Insurance</li>
-                      <li>Hotel & Resort Booking</li>
-                      <li>Flight Tickets (Domestic & International)</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      
-      <!-- Types of Tours Section with Image on Right -->
-      <div class="tours-section">
-          <h2 class="section-title">Types of Tours</h2>
-          <div class="tours-content">
-              <div class="tours-list">
-                  <ul>
-                      <li>Family Tours</li>
-                      <li>Friends Adventure Tours</li>
-                      <li>Honeymoon Tours</li>
-                      <li>International Trade Fair Tours</li>
-                      <li>School & College Tours</li>
-                      <li>Cruise Tours</li>
-                      <li>Spiritual Tours</li>
-                  </ul>
-              </div>
-              <div class="image">
-                  <!-- Replace 'your-tours-image.jpg' with your actual image path -->
-                  <img src="types of tours.avif" alt="Tour Destinations">
-              </div>
-          </div>
-      </div>
-  </div>
+ 
+    
      
 
 
