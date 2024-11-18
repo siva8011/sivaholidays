@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Holidays</title>
+    <title>friends acting travels</title>
    
     
     <link rel="stylesheet" href="styles.css">
@@ -13,6 +13,10 @@
     height: auto;
     display: block;
     margin: 0 auto; /* Centers the logo horizontally */
+    font-size: 24px; /* Adjust font size if needed */
+    font-weight: bold;
+    color: #e31e24;
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
 }
 
         body {
@@ -42,7 +46,7 @@
         }
         nav ul li a {
             text-decoration: none;
-            color: #f2e9e9;
+            color: #0000FF;
             font-weight: bold;
             transition: color 0.3s;
         }
@@ -319,12 +323,78 @@
         #thank-you-message p {
             font-size: 18px;
         }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .services-content, .tours-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-list, .tours-list {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-form-wrapper {
+                padding: 1rem;
+            }
+
+            .contact-form h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-form .input-group input, 
+            .contact-form .input-group textarea {
+                font-size: 0.9rem;
+            }
+
+            .contact-form .submit-btn {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 10px;
+            }
+
+            .card {
+                width: 100%;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="logo">Siva Holidays</div>
+        <div class="navbar">s
+            <div class="logo">friends acting travels</div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -335,6 +405,7 @@
                     <li><a href="#types-of-tours">Types Of Tours</a></li>
                     <li><a href="#testimonial">Testimonial</a></li>
                     <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -365,6 +436,105 @@
             <a href="#" class="explore-link">Explore Destinations</a>
         </div>
     </section>
+
+    <!-- New Our Services Section -->
+    <title>Our Services</title>
+    <script src="https://kit.fontawesome.com/4cba028f2c.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .services-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .services-section h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 10px;
+        }
+        .service-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .service-box i {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .service-box p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .service-box:hover {
+            background-color: red;
+            transform: translateY(-5px);
+        }
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <div class="services-section">
+        <h1>Our Services</h1>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fas fa-hotel"></i>
+                <p>Hotel Booking</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-plane"></i>
+                <p>Domestic & International Ticketing</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-passport"></i>
+                <p>Passport Assistance</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-exchange-alt"></i>
+                <p>Foreign Exchange</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-shield-alt"></i>
+                <p>Travel Insurance</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Saudi Visa Services</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-clipboard-check"></i>
+                <p>Visa Services</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-car"></i>
+                <p>Car Rental</p>
+            </div>
+        </div>
+    </div>
     
     <script>
         // Function to animate counters
@@ -787,32 +957,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <div class="contact-form-wrapper">
         <div class="contact-form">
-          <h2>Contact Us</h2>
-       
+            <h2>Contact Us</h2>
             <form action="https://api.web3forms.com/submit" method="POST">
-
                 <input type="hidden" name="access_key" value="1e30cfca-c892-4d22-88e3-cc72d6a2ea67">
-            
-            <div class="input-group">
-              <input type="text" id="name" name="name" required placeholder=" ">
-              <label for="name">Your Name</label>
-            </div>
-            <div class="input-group">
-              <input type="email" id="email" name="email" required placeholder=" ">
-              <label for="email">Your Email</label>
-            </div>
-            <div class="input-group">
-              <input type="tel" id="phone" name="phone" required placeholder=" ">
-              <label for="phone">Phone Number</label>
-            </div>
-            <div class="input-group">
-              <textarea id="message" name="message" required placeholder=" "></textarea>
-              <label for="message">Your Message</label>
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-          </form>
+                <div class="input-group">
+                    <input type="text" id="name" name="name" required placeholder=" ">
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" required placeholder=" ">
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" name="message" required placeholder=" "></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
         </div>
-      </div>
+    </div>
       
       <!-- Thank You Section at the Bottom -->
       <div class="thank-you">
@@ -822,110 +989,99 @@ document.addEventListener('DOMContentLoaded', function () {
       <style>
         /* Center the form on the page */
         .contact-form-wrapper {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          background-color: #121212;
-          padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #121212;
+            padding: 2rem;
         }
-      
+
         .contact-form {
-          background: #222;
-          padding: 2rem;
-          border-radius: 10px;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-          width: 100%;
-          max-width: 500px;
+            background: #222;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
         }
-      
+
         .contact-form h2 {
-          text-align: center;
-          margin-bottom: 1.5rem;
-          font-size: 1.8rem;
-          color: #0dcaf0;
-          text-shadow: 0 0 10px #0dcaf0;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: #0dcaf0;
+            text-shadow: 0 0 10px #0dcaf0;
         }
-      
+
         .contact-form .input-group {
-          position: relative;
-          margin-bottom: 1.5rem;
+            position: relative;
+            margin-bottom: 1.5rem;
         }
-      
+
         .contact-form .input-group input, 
         .contact-form .input-group textarea {
-          width: 100%;
-          padding: 0.8rem 1rem;
-          background: #1b1b1b;
-          border: none;
-          border-radius: 5px;
-          color: #fff;
-          font-size: 1rem;
-          outline: none;
-          transition: all 0.3s ease;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: #1b1b1b;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
         }
-      
+
         .contact-form .input-group input:focus,
         .contact-form .input-group textarea:focus {
-          box-shadow: 0 0 8px #0dcaf0, 0 0 15px #0dcaf0;
+            box-shadow: 0 0 8px #0dcaf0, 0 0 15px #0dcaf0;
         }
-      
+
         .contact-form .input-group label {
-          position: absolute;
-          left: 1rem;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 1rem;
-          color: #aaa;
-          pointer-events: none;
-          transition: all 0.3s ease;
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: #aaa;
+            pointer-events: none;
+            transition: all 0.3s ease;
         }
-      
+
         .contact-form .input-group input:focus ~ label,
         .contact-form .input-group input:not(:placeholder-shown) ~ label,
         .contact-form .input-group textarea:focus ~ label,
         .contact-form .input-group textarea:not(:placeholder-shown) ~ label {
-          top: -0.5rem;
-          left: 1rem;
-          font-size: 0.8rem;
-          color: #0dcaf0;
+            top: -0.5rem;
+            left: 1rem;
+            font-size: 0.8rem;
+            color: #0dcaf0;
         }
-      
+
         .contact-form textarea {
-          height: 100px;
-          resize: none;
+            height: 100px;
+            resize: none;
         }
-      
+
         .contact-form .submit-btn {
-          background: linear-gradient(45deg, #0dcaf0, #00d4ff);
-          padding: 0.8rem 1.5rem;
-          border: none;
-          border-radius: 5px;
-          color: #fff;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          width: 100%;
-          display: inline-block;
-          text-align: center;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #0dcaf0, #00d4ff);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;hey i had the a bigger problem when i open this on my phone the arrangment was not perfect make me the perfect webpage for both mobile and desktop make it correctly
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-      
+
         .contact-form .submit-btn:hover {
-          box-shadow: 0 0 15px #0dcaf0, 0 0 30px #0dcaf0;
+            box-shadow: 0 0 15px #0dcaf0, 0 0 30px #0dcaf0;
         }
-      
-        /* Thank You Section */
-        .thank-you {
-          text-align: center;
-          padding: 1rem;
-          background: #1b1b1b;
-          color: #0dcaf0;
-          margin-top: 2rem;
-          border-radius: 5px;
-          font-size: 1.1rem;
-        }
-      </style>
+    </style>
       
       
 </body>
