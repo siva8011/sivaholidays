@@ -7,6 +7,49 @@
     
     
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        width: calc(100% - 20px); /* Ensures full width with padding for mobile */
+        max-width: 300px; /* Limits width for larger screens */
+        overflow: hidden;
+        margin: 10px;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1);
+    }
+
+    .enquire-btn {
+        display: inline-block;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+</style>
+
     <style>
         .logo {
     width: 150px; /* Adjust the size as needed */
