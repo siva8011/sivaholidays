@@ -388,6 +388,13 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Media query to hide the services and tours sections on desktop devices */
+        @media (min-width: 769px) {
+            .services-section,
+            .tours-section {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
