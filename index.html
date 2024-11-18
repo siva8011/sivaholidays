@@ -395,6 +395,19 @@
                 display: none;
             }
         }
+        /* Media query to ensure services section is visible on desktop devices */
+        @media (min-width: 769px) {
+            .services-section {
+                display: block;
+            }
+        }
+
+        /* Media query to hide the services section on mobile devices */
+        @media (max-width: 768px) {
+            .services-section {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
