@@ -474,6 +474,104 @@
                 max-width: 100%;
             }
         }
+
+        .scroll-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide the menu icon on desktop devices */
+        @media (min-width: 769px) {
+            .menu-icon {
+                display: none;
+            }
+        }
+
+        /* Show the menu icon on mobile devices */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+            }
+        }
+
+        .services-section {
+            display: block;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 10px;
+        }
+
+        .service-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-box i {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .service-box p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .service-box:hover {
+            background-color: red;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr; /* One column on very small screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -487,8 +585,7 @@
                     <li><a href="#about-us">About Us</a></li>
                     <li><a href="#domestic-tours">Domestic Tours</a></li>
                     <li><a href="#international-tours">International Tours</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
-                
+                    <li><a href="#contact-form">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -540,6 +637,7 @@
             background-color: #f9f9f9;
         }
         .services-section {
+            display: block;
             text-align: center;
             padding: 20px;
         }
@@ -697,20 +795,7 @@
         </div>
     </section>
 
-    <section id="international-tours">
-        <h2 class="section-title">International Tours</h2>
-        <div class="container">
-            <div class="card"><img src="azerbaijan.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Azerbaijan</h2><p>4 Nights & 5 Days</p><p>Rs.39,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Azerbaijan')">Enquire Now</a></div>
-            <div class="card"><img src="sikkim.jpg" style="width: 100%; height: auto; border-radius: 10px;"><h2>Bali</h2><p>5 Nights & 6 Days</p><p>Rs.35,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Bali')">Enquire Now</a></div>
-            <div class="card"><img src="cambodia.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Cambodia</h2><p>7 Nights & 8 Days</p><p>Rs.69,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Cambodia')">Enquire Now</a></div>
-            <div class="card"><img src="dubai.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Dubai</h2><p>4 Nights & 5 Days</p><p>Rs.50,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Dubai')">Enquire Now</a></div>
-            <div class="card"><img src="europe.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Europe</h2><p>9 Nights & 10 Days</p><p>Rs.1.5 Lakhs/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Europe')">Enquire Now</a></div>
-            <div class="card"><img src="malaisia.jpg"Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Malaysia</h2><p>5 Nights & 6 Days</p><p>Rs.65,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Malaysia')">Enquire Now</a></div>
-            <div class="card"><img src="maldives.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Maldives</h2><p>4 Nights & 5 Days</p><p>Rs.49,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Maldives')">Enquire Now</a></div>
-            <div class="card"><img src="seychallus1.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Seychelles</h2><p>4 Nights & 5 Days</p><p>Rs.59,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Seychelles')">Enquire Now</a></div>
-            <div class="card"><img src="singapore.jpg" alt="Goa" style="width: 100%; height: auto; border-radius: 10px;"><h2>Singapore</h2><p>5 Nights & 6 Days</p><p>Rs.58,000/- + Flight</p><a href="#" class="enquire-btn" onclick="openModal('Singapore')">Enquire Now</a></div>
-        </div>
-    </section>
+   
 
 
     <script>
@@ -816,7 +901,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div class="modal-header">Enquire About Tour</div>
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form  action="https://formspree.io/f/xanybdrz" method="POST">
 
                 <input type="hidden" name="access_key" value="1e30cfca-c892-4d22-88e3-cc72d6a2ea67">
                 <label for="name">Your Name (required):</label>
@@ -876,10 +961,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <a href="https://facebook.com" target="_blank" class="social-icon facebook">
       <i class="fa fa-facebook"></i>
     </a>
-    <a href="https://www.instagram.com/Sivaaaa_07_/profilecard/?igsh=bnR5MzE2NXVsNGtw" target="_blank" class="social-icon instagram">
+    <a href="https://www.instagram.com/" target="_blank" class="social-icon instagram">
       <i class="fa fa-instagram"></i>
     </a>
-    <a href="https://whatsapp.com" target="_blank" class="social-icon whatsapp">
+    <a href="https://wa.me/9698823304" target="_blank" class="social-icon whatsapp">
       <i class="fa fa-whatsapp"></i>
     </a>
   </div>
@@ -964,10 +1049,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-      <div class="contact-form-wrapper">
+      <div id="contact-form" class="contact-form-wrapper">
         <div class="contact-form">
             <h2>Contact Us</h2>
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form  action="https://formspree.io/f/xanybdrz"" method="POST">
                 <input type="hidden" name="access_key" value="1e30cfca-c892-4d22-88e3-cc72d6a2ea67">
                 <div class="input-group">
                     <input type="text" id="name" name="name" required placeholder=" ">
@@ -1172,9 +1257,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     <img src="https://img.icons8.com/color/48/000000/address--v1.png" alt="Map Icon">
                 </div>
                 <div class="details">
-                    <h3>Tirupur</h3>
-                    <p>Primo Holidays</p>
-                    <p>49, PR Complex, Benny Compound Main Street, Kumaran Road, Tirupur - 641601</p>
+                    <h3>karur</h3>
+                    <p>friends acting travels</p>
+                    <p>95,Gemini complex covai road karur 639001</p>
                 </div>
             </div>
             <div class="info-item">
@@ -1183,28 +1268,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="details">
                     <h3>Phone</h3>
-                    <p>9943200400, 9943700400</p>
+                    <p>9698823304,9943397989</p>
                 </div>
             </div>
             <div class="info-item">
                 <div class="icon">
                     <img src="https://img.icons8.com/color/48/000000/gmail-new.png" alt="Mail Icon">
                 </div>
-                <div class="details">
-                    <h3>Mail</h3>
-                    <p><a href="mailto:primoholidaysindia@gmail.com">primoholidaysindia@gmail.com</a></p>
-                </div>
+            
             </div>
         </div>
         <div class="contact-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.8909281946054!2d77.31687861522346!3d11.108529292114847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba909fbd15a333f%3A0x6239d0f439ffed82!2sPrimo%20Holidays!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
-                width="100%"
-                height="400"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-            ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.0625460546767!2d78.07182827485967!3d10.958648089201374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2fafa68a3097%3A0x1ab0a05a582542e8!2sFriends%20Acting%20Driver%20%26%20Travel%20Agency%20Karur!5e0!3m2!1sen!2sin!4v1732124154235!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
       
