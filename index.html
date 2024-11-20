@@ -613,6 +613,30 @@
                 max-width: 100%; /* Further reduce the map size for very small screens */
             }
         }
+
+        .contact-map {
+            text-align: center; /* Optional: Center the map */
+        }
+
+        .map-iframe {
+            width: 100%; /* Default full width for responsiveness */
+            height: 450px; /* Default height */
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .map-iframe {
+                width: 100%; /* Adjust as needed */
+                height: 300px; /* Reduce height for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-iframe {
+                width: 100%; /* Further reduce size for smaller screens */
+                height: 200px; /* Minimum height for usability */
+            }
+        }
     </style>
 </head>
 <body>
@@ -1336,7 +1360,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </div>
         <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.0625460546767!2d78.07182827485967!3d10.958648089201374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2fafa68a3097%3A0x1ab0a05a582542e8!2sFriends%20Acting%20Driver%20%26%20Travel%20Agency%20Karur!5e0!3m2!1sen!2sin!4v1732124154235!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.0625460546767!2d78.07182827485967!3d10.958648089201374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2fafa68a3097%3A0x1ab0a05a582542e8!2sFriends%20Acting%20Driver%20%26%20Travel%20Agency%20Karur!5e0!3m2!1sen!2sin!4v1732124154235!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
       
